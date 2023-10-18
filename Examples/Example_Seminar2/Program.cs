@@ -1,6 +1,7 @@
 ﻿using System; 
 using System.Collections.Generic;
 
+var array = new List<int>();
 
 int number = 346; // Заданное число 
 
@@ -16,7 +17,6 @@ else
     Console.WriteLine("Введите трёхзначное число");
 }
 
-var array = new List<int>();
 
 // Второе задание: Нахождение третьей цифры заданного числа
 
