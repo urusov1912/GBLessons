@@ -1,60 +1,46 @@
-﻿using System; 
-using System.Collections.Generic;
+﻿ // Первое задание: Нахождение второй цифры из трёхзначного числа
 
-var array = new List<int>();
+int number = Prom("Введите значение: ");
 
-int number = 346; // Заданное число 
-
-// Первое задание "Нахождение второй цифры из трёхзначного числа"
-
-if (number > 99 && number < 1000)
+int Prom(string message)
 {
-    int result = number % 100 / 10;
-    Console.WriteLine(result);
+    Console.Write(message);
+    int result = Convert.ToInt32(Console.ReadLine());
+    return result;
 }
-else
+
+if (number < 100)
 {
     Console.WriteLine("Введите трёхзначное число");
 }
-
-
-// Второе задание: Нахождение третьей цифры заданного числа
-
-if (number > 99 && number < 100000)
-{
-    int div = 1;
-    int digit_count = 1;
-
-    while(div <= number / 10)
-    {
-        digit_count++;
-        div *= 10;
-    }
-
-    int length = digit_count;
-
-    for (int i = 0; digit_count > 0; i++)
-    {
-        array.Add(number / div);
-        number %= div;
-        div /= 10;
-        digit_count --;
-    }
-    foreach (int element in array)
-    {
-       Console.Write(element);
-    }
-    Console.Write(" Третий элемент: " + array[2]);
-}
-
 else
 {
-    Console.WriteLine("Третьего элемента нет");
+    number %= 10;
+    Console.WriteLine("Третья цифра - " + number);
+}        
+
+// Второе задание: Программа по нахождению третьей цифры заданного числа
+
+number = Prom("Введите значение: ");
+
+if (number < 100) Console.WriteLine("Третьей цифры нету");
+else
+{
+    while(number > 999)
+    {
+        number /= 10;
+    }
+    Console.WriteLine("Третья цифра данного числа: " + number % 10);
 }
 
-// Третье задание: Проверить является ли заданная цифра выходным днём
+// Третье задание: Программа на проверку, является ли задданая цифра выходным днём
 
-int day = 6;
-if (day == 6 || day == 7) Console.WriteLine("Этот день является выходным");
-else Console.WriteLine("Этот день не является выходным");
-        
+number = Prom("Введите цифру дня недели: ");
+
+if (number > 7) Console.WriteLine("Такого дня не существует");
+else 
+{
+    if (number == 6 || number == 7) Console.WriteLine("Этот день является выходным");
+    else Console.WriteLine("Этот день не является выходным");
+}
+
